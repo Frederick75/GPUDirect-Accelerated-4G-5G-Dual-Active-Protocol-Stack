@@ -14,7 +14,7 @@ MODULE_DESCRIPTION("Production PCIe RDMA GPUDirect Accelerator Driver Framework"
 MODULE_VERSION("1.0");
 
 #define DEVICE_NAME "accel_gpudirect"
-#define CLASS_NAME  "accel"
+#define CLASS_NAME  "accel_proto"
 #define VENDOR_ID   0x10EE // Example Vendor ID (Xilinx/AMD)
 #define DEVICE_ID   0x903F // Example Accelerator Device ID
 
