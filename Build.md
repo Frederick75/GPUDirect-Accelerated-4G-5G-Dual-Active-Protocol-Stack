@@ -1,16 +1,14 @@
-Build and Execution Instructions of kernel module
-KDIR ?= /lib/modules/$(shell uname -r)/build
-PWD  := $(shell pwd)
+1. Compiling the Kernel Module
+# Compile the driver
+make
 
-obj-m += accel_driver.o
+# Insert into the running kernel
+sudo insmod accel_driver.ko
 
-all:
-	$(MAKE) -C $(KDIR) M=$(PWD) modules
+# Inspect kernel ring buffer logs to verify successful tracking initialization
+dmesg | tail -n 20
 
-clean:
-	$(MAKE) -C $(KDIR) M=$(PWD) clean
-
-Compiling the User-Space Engine (Build & Run Commands)
+2. Compiling the User-Space Engine
 # Create build artifact folders
 mkdir build && cd build
 
