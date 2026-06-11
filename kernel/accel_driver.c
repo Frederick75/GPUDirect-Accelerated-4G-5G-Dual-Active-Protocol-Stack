@@ -70,7 +70,7 @@ static int accel_mmap(struct file *fil, struct vm_area_struct *vma) {
 
     // Set page attributes to non-cached to guarantee write-through/I/O consistency
     vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
-    vma->vm_flags |= VM_IO | VM_DONTEXPAND | VM_DONTDUMP;
+    vm_flags_set(vma, VM_IO | VM_DONTEXPAND | VM_DONTDUMP);
 
     if (remap_pfn_range(vma, vma->vm_start, ctx->bar_phys >> PAGE_SHIFT, size, vma->vm_page_prot)) {
         dev_err(&ctx->pdev->dev, "Failed to remap BAR0 physical range to user-space\n");

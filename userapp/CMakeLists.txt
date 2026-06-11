@@ -13,5 +13,5 @@ pkg_check_modules(DPDK REQUIRED libdpdk)
 include_directories(${DPDK_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR})
 link_directories(${DPDK_LIBRARY_DIRS})
 
-add_executable(ran_engine main.cpp)
+add_executable(ran_engine dpdk-process-engine.cpp)
 target_link_libraries(ran_engine PRIVATE ${DPDK_LIBRARIES})
